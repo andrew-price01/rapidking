@@ -3,6 +3,7 @@ import sys
 
 digitList = ('00011', '00101', '00110', '01001', '01010', '01100', '10001', '10010', '10100')
 
+
 def getDigit(d):
     for i in digitList:
         bar1 = int(i[0]) * 7
@@ -14,6 +15,20 @@ def getDigit(d):
         if digit == int(d):
             printBarCode(i)
 
+def checkDigit(zipcode):
+    checkDigit = 0
+    multOfTen = 10
+    for i in zipcode:
+        checkDigit += int(i)
+    while multOfTen < 50:
+        if checkDigit < multOfTen:
+            check = multOfTen - checkDigit
+            getDigit(check)
+            break
+        else:
+            multOfTen += 10
+
+
 def getInput():
     zipcode = input("Enter a zipcode: ")
     sys.stdout.write("|")
@@ -22,6 +37,9 @@ def getInput():
             getDigit(num)
         else:
             sys.stdout.write("||:::")
+    checkDigit(zipcode)
+    sys.stdout.write("|")
+    print('\n')
 
 '''def printDigit(d):'''
 
@@ -31,7 +49,7 @@ def printBarCode(bar):
             sys.stdout.write(":")
         elif p == "1":
             sys.stdout.write("|")
-    sys.stdout.write("|")
+    
 
 
 def main():
