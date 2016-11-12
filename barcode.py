@@ -3,7 +3,9 @@ import sys
 
 digitList = ('00011', '00101', '00110', '01001', '01010', '01100', '10001', '10010', '10100')
 
-
+'''
+Matches digit with digitList values. Calls printBarCode().
+'''
 def getDigit(d):
     for i in digitList:
         bar1 = int(i[0]) * 7
@@ -15,6 +17,9 @@ def getDigit(d):
         if digit == int(d):
             printBarCode(i)
 
+'''
+Finds check digit
+'''
 def checkDigit(zipcode):
     checkDigit = 0
     multOfTen = 10
@@ -27,8 +32,10 @@ def checkDigit(zipcode):
             break
         else:
             multOfTen += 10
-
-
+'''
+Checks valid zip code inputs. Calls getDigit() for all numbers not 0. 
+If digit is 0, prints barcode. Calls checkDigit()
+'''
 def getInput():
     zipcode = input("Enter a zipcode: ")
     if len(zipcode) != 5:
@@ -50,6 +57,9 @@ def getInput():
 
 '''def printDigit(d):'''
 
+'''
+Prints barcode
+'''
 def printBarCode(bar):
     for p in bar:
         if p == "0":
