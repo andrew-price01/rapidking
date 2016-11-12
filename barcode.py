@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 import sys
 
-digitList = ('00011', '00101', '00110', '01001', '01010', '01100', '10001', '10010', '10100', '11000')
+digitList = ('00011', '00101', '00110', '01001', '01010', '01100', '10001', '10010', '10100')
 
 def getDigit(d):
-    if d == '0':
-        print(11000)
-
     for i in digitList:
         bar1 = int(i[0]) * 7
         bar2 = int(i[1]) * 4
@@ -15,16 +12,27 @@ def getDigit(d):
         bar5 = int(i[4]) * 0
         digit = bar1 + bar2 + bar3 + bar4 + bar5
         if digit == int(d):
-            print(i)
+            printBarCode(i)
 
 def getInput():
     zipcode = input("Enter a zipcode: ")
+    sys.stdout.write("|")
     for num in zipcode:
-        getDigit(num)
+        if num != '0':
+            getDigit(num)
+        else:
+            sys.stdout.write("||:::")
 
-'''def printDigit(d):
+'''def printDigit(d):'''
 
-def printBarCode(zipCode):'''
+def printBarCode(bar):
+    for p in bar:
+        if p == "0":
+            sys.stdout.write(":")
+        elif p == "1":
+            sys.stdout.write("|")
+    sys.stdout.write("|")
+
 
 def main():
     getInput()
