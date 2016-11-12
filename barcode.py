@@ -31,15 +31,22 @@ def checkDigit(zipcode):
 
 def getInput():
     zipcode = input("Enter a zipcode: ")
-    sys.stdout.write("|")
-    for num in zipcode:
-        if num != '0':
-            getDigit(num)
-        else:
-            sys.stdout.write("||:::")
-    checkDigit(zipcode)
-    sys.stdout.write("|")
-    print('\n')
+    if len(zipcode) != 5:
+        print("Error. Input does not match required length. <95014>")
+        getInput()
+    elif any(i.isalpha() for i in zipcode):
+        print("Error. Only numbers allowed. <95014>")
+        getInput()
+    else:
+        sys.stdout.write("|")
+        for num in zipcode:
+            if num != '0':
+                getDigit(num)
+            else:
+                sys.stdout.write("||:::")
+        checkDigit(zipcode)
+        sys.stdout.write("|")
+        print('\n')
 
 '''def printDigit(d):'''
 
