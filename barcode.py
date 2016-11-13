@@ -6,7 +6,8 @@ digitList = ('00011', '00101', '00110', '01001', '01010', '01100', '10001', '100
 '''
 Matches digit with digitList values. Calls printBarCode().
 '''
-def getDigit(d):
+
+def printDigit(d):
     for i in digitList:
         bar1 = int(i[0]) * 7
         bar2 = int(i[1]) * 4
@@ -28,7 +29,7 @@ def checkDigit(zipcode):
     while multOfTen < 50:
         if checkDigit < multOfTen:
             check = multOfTen - checkDigit
-            getDigit(check)
+            printDigit(check)
             break
         else:
             multOfTen += 10
@@ -48,14 +49,12 @@ def getInput():
         sys.stdout.write("|")
         for num in zipcode:
             if num != '0':
-                getDigit(num)
+                printDigit(num)
             else:
                 sys.stdout.write("||:::")
         checkDigit(zipcode)
         sys.stdout.write("|")
         print('\n')
-
-'''def printDigit(d):'''
 
 '''
 Prints barcode
