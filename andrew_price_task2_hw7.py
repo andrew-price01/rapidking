@@ -26,8 +26,12 @@ def checkDigit(zipcode):
     multOfTen = 10
     for i in zipcode:
         checkDigit += int(i)
+    flag = checkDigit % 2
     while multOfTen < 50:
-        if checkDigit < multOfTen:
+        if flag == 0:
+            sys.stdout.write("||:::")
+            break
+        elif checkDigit < multOfTen:
             check = multOfTen - checkDigit
             printDigit(check)
             break
