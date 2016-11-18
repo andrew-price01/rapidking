@@ -79,6 +79,5 @@ def control():
         print ("Reading record # '",counter,"'(Use Keyboard Interrupt to Stop the Program):")
         print (" ")
 
-control()
 
 exit(0)
