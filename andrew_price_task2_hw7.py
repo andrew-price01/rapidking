@@ -3,11 +3,11 @@ import sys
 
 digitList = ('00011', '00101', '00110', '01001', '01010', '01100', '10001', '10010', '10100')
 
-'''
-Matches digit with digitList values. Calls printBarCode().
-'''
-
 def printDigit(d):
+    """
+    Matches digit (d) with digitList [] values. Calls printBarCode() with 
+    found value.
+    """
     for i in digitList:
         bar1 = int(i[0]) * 7
         bar2 = int(i[1]) * 4
@@ -18,10 +18,11 @@ def printDigit(d):
         if digit == int(d):
             printBarCode(i)
 
-'''
-Finds check digit
-'''
+
 def checkDigit(zipcode):
+    """
+    Finds check digit. Calls printDigit() with check digit
+    """
     checkDigit = 0
     multOfTen = 10
     for i in zipcode:
@@ -37,11 +38,12 @@ def checkDigit(zipcode):
             break
         else:
             multOfTen += 10
-'''
-Checks valid zip code inputs. Calls getDigit() for all numbers not 0. 
-If digit is 0, prints barcode. Calls checkDigit()
-'''
+
+
 def getInput():
+    """
+    Checks valid zip code inputs. Calls printZipCode().
+    """
     zipcode = input("Enter a zipcode: ")
     if len(zipcode) != 5:
         print("Error. Input does not match required length. <95014>")
@@ -53,6 +55,10 @@ def getInput():
         printZipCode(zipcode)
 
 def printZipCode(code):
+    """
+    For every digit in zipcode, passes in digit argument to printDigit().
+    If digit is 0, prints 0 barcode. Calls checkDigit() last.
+    """
     sys.stdout.write("|")
     for num in code:
         if num != '0':
@@ -63,10 +69,11 @@ def printZipCode(code):
     sys.stdout.write("|")
     print('\n')
 
-'''
-Prints barcode
-'''
+
 def printBarCode(bar):
+    """
+    Prints barcode.
+    """
     for p in bar:
         if p == "0":
             sys.stdout.write(":")
@@ -76,6 +83,9 @@ def printBarCode(bar):
 
 
 def main():
+    """
+    Calls getInput()
+    """
     getInput()
 
 if __name__ == '__main__':
