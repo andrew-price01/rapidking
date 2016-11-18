@@ -4,6 +4,12 @@ import andrew_price_task2_hw7
 import urllib.request
 
 def getInput():
+    """
+    Pulls barCodeData.txt from url,
+    loop through each line and put into a list,
+    Calls printZipCode from andrew_price_task2_hw7.py and passes in each
+    object in list.
+    """
     L = []
     url = "http://icarus.cs.weber.edu/~hvalle/cs3030/data/barCodeData.txt"
     response = urllib.request.urlopen(url).read().decode("utf-8")
@@ -14,6 +20,9 @@ def getInput():
         andrew_price_task2_hw7.printZipCode(i)
 
 def main():
+    """
+    Calls getInput()
+    """
     getInput()
 
 if __name__ == '__main__':
