@@ -14,6 +14,7 @@ with urlopen("http://icarus.cs.weber.edu/~hvalle/cs3030/data/minivanTest.csv") a
     switches=[]
     for i in file:
         line = i.decode('utf-8')
-        print(line)
+        maybe = (line.split())
+        print(maybe)
 
 exit(0)
