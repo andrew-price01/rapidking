@@ -26,7 +26,7 @@ def fileup():
                 perams = line
                 print(perams)
 
-
+fileup()
 control()
 
 
