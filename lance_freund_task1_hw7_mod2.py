@@ -1,5 +1,4 @@
-#!/usr/bin/env/python3
-
+#!/usr/bin/env python3
 # This is template intended for python modules
 # Coded By: Lance Freund
 # Weber State University
@@ -8,18 +7,44 @@
 #---- Write Python source code below this text. Don't forget your  imports ---
 import sys
 from urllib.request import urlopen
-import burak_deniz_task1_hw7_mod1.py
+import re
+from burak_deniz_task1_hw7_mod1 import control
 
 def fileup():
+    """
+    This function captures file and decodes the data
+    """
     with urlopen("http://icarus.cs.weber.edu/~hvalle/cs3030/data/minivanTest.csv") as file:
 
-        switches=[]
         for i in file:
             line = i.decode('utf-8')
-            maybe = (line.split())
-            print(maybe)
+            #data_clean = (line.split())
+
+            if line[0] is "R":
+                line = line.replace(",","" )
+                line = line.replace("R1", "")
+                perams = line
+                print(perams)
 
 
+control()
+
+
+"""
+            LD = perams[1]
+            RD = perams[3]
+            CL = perams[5]
+            ML = perams[7]
+            LI = perams[9]
+            LO = perams[11]
+            RI = perams[13]
+            RO = perams[15]
+            GS = perams[17]
+            print(perams)
+        #switchInfo=(LD,RD,CL,ML,LI,LO,RI,RO,GS)
+        #print(switchInfo)
+
+"""
 def main():
     """
     runs module
@@ -29,4 +54,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-exit(0)
+    exit(0)

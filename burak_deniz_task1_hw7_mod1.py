@@ -79,5 +79,7 @@ def control():
         print ("Reading record # '",counter,"'(Use Keyboard Interrupt to Stop the Program):")
         print (" ")
 
+if __name__ == '__main__':
+    fileup()
 
-exit(0)
+    exit(0)
