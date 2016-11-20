@@ -2,7 +2,7 @@
 import sys
 import re
 import urllib.request
-import minivan
+import andrew_price_task1_hw7
 
 header = []
 
@@ -44,7 +44,7 @@ def testCheckDoors():
         print("Right inside handle (0 or 1): {}".format(ri))
         print("Right ouside handle (0 or 1): {}".format(ro))
         print("Gear shift position (P, N, D, 1, 2, 3, Or R): {}".format(gs))
-        minivan.checkDoors(ld, rd, cl, ml, li, lo, ri, ro, gs)
+        andrew_price_task1_hw7.checkDoors(ld, rd, cl, ml, li, lo, ri, ro, gs)
         print("\n")
         x+=1
 
